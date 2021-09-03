@@ -1,16 +1,16 @@
-@import "../../utils/variables.scss";
+@import '../../utils/variables.scss';
 
 .bubble_style {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
-    @include flexCenter(row);
-    text-align: center;
-    transition: color 300ms ease-in-out;
-    &:hover {
-        cursor: pointer;
-        color: rgba(255, 255, 255, 0.851);
-    }
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	@include centered;
+	text-align: center;
+	@include shadow;
+	transition: all 100ms ease-in-out;
+	&:hover {
+		cursor: pointer;
+		color: rgba(255, 255, 255, 0.851);
+	}
 }

@@ -1,26 +1,53 @@
 @mixin flexAround($direction) {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: $direction;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: $direction;
 }
 @mixin flexEven($direction) {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: $direction;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: $direction;
 }
 @mixin flexCenter($direction) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: $direction;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: $direction;
 }
 @mixin flexBetween($direction) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: $direction;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: $direction;
+}
+
+@mixin centered {
+	display: grid;
+	place-items: center;
+}
+
+@mixin shadow {
+	transition: box-shadow 100ms ease;
+	box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+	&:hover {
+		box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+	}
+}
+
+@mixin link($primary, $hover) {
+	margin: 0.5rem;
+	padding: 0 0.4rem;
+	display: block;
+	text-decoration: none;
+	border: 1px solid black;
+	border-radius: 3px;
+	color: $primary;
+	&:hover {
+		text-decoration: none;
+		color: $hover;
+	}
 }
 
 $black: 1px solid black;
@@ -28,3 +55,4 @@ $red: 1px solid red;
 $white: 1px solid white;
 $blue: 1px solid blue;
 $green: 1px solid green;
+$niceYellow: #c58d43;

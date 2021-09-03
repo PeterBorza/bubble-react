@@ -1,21 +1,21 @@
+@import '../variables.scss';
+
 .primary_btn {
-    position: relative;
-    padding: 0.3rem 0.8rem;
-    min-width: 80px;
-    min-height: 30px;
-    outline: none;
-    border: none;
-    border-radius: 3px;
-    background-color: #c58d43;
-    cursor: pointer;
-    transition: transform 100ms ease;
-    &:hover {
-        color: white;
-    }
-    &:active {
-        transform: scale(0.98);
-    }
+	padding: 0.3rem 0.8rem;
+	outline: none;
+	border: none;
+	border-radius: 3px;
+	background-color: #c58d43;
+	cursor: pointer;
+	transition: transform 100ms ease;
+	@include flexCenter(row);
+	&:hover {
+		color: white;
+	}
+	&:active {
+		transform: scale(0.98);
+	}
 }
 .bg_transparent {
-    background-color: transparent;
+	background-color: transparent;
 }

@@ -1,23 +1,17 @@
-.nav_bar {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 6vh;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    h1 {
-        color: #d6cdcd;
-        // font-size: 2.5rem;
-        text-transform: uppercase;
-    }
-}
+@import '../utils/variables.scss';
 
-@media only screen and (max-width: 800px) {
-    .nav_bar {
-        h1 {
-            font-size: 1rem;
-        }
-    }
+.nav_bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 6vh;
+	background-color: rgba(0, 0, 0, 0.3);
+	@include flexAround(row);
+	h1 {
+		max-width: 60%;
+		color: #d6cdcd;
+		text-transform: uppercase;
+		font-size: clamp(0.8rem, 1.3vw, 2.5rem);
+	}
 }
