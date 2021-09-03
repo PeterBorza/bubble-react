@@ -1,0 +1,30 @@
+@mixin flexAround($direction) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: $direction;
+}
+@mixin flexEven($direction) {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: $direction;
+}
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+@mixin flexBetween($direction) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+$black: 1px solid black;
+$red: 1px solid red;
+$white: 1px solid white;
+$blue: 1px solid blue;
+$green: 1px solid green;

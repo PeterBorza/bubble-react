@@ -1,0 +1,71 @@
+@import "../../utils/variables.scss";
+.title_name {
+    position: relative;
+    margin: 1rem;
+    font-size: 1.4rem;
+    color: #086b6b;
+    font-weight: bold;
+    text-transform: capitalize;
+    &::after {
+        position: absolute;
+        content: "";
+        width: 80%;
+        height: 2px;
+        left: 10%;
+        bottom: -10%;
+        background-color: #97e6e6;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: transform 100ms ease;
+    }
+    &:hover {
+        color: white;
+    }
+    &:hover::after {
+        transform: scale(1);
+        transform-origin: center;
+    }
+}
+.listCss {
+    @include flexCenter(column);
+    li {
+        list-style: none;
+        display: block;
+        line-height: 2;
+        color: #a2702e;
+        font-size: 1.1rem;
+    }
+}
+
+.left,
+.top,
+.size,
+.opacity {
+    position: relative;
+    text-align: center;
+    // border: 2px solid #0b9b9b;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+
+.left {
+    grid-column: 1/2;
+}
+
+.top {
+    grid-column: 2/3;
+}
+
+.size {
+    grid-column: 3/4;
+}
+
+.opacity {
+    grid-column: 4/5;
+}
+
+@media only screen and (max-width: 800px) {
+    .title_name {
+        font-size: 0.7rem;
+    }
+}

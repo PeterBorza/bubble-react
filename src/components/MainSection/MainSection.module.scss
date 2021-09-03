@@ -1,0 +1,24 @@
+.data_table_section {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    width: 60%;
+    height: 90vh;
+    background-color: #92dddd;
+    border-radius: 0.3rem;
+    margin-top: 6vh;
+}
+.output {
+    grid-column: 2/6;
+    display: grid;
+    background-color: #7ecbcbde;
+    border-radius: 0.3rem;
+    span {
+        color: red;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .data_table_section {
+        background-color: violet;
+    }
+}
