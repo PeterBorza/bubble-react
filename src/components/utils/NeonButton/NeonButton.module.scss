@@ -1,5 +1,4 @@
-@use "../../../css/mixins" as *;
-@use "../../../css/variables" as *;
+@import '../variables.scss';
 
 $neonBlue: #03e9f4;
 $bg: #050801;
@@ -15,7 +14,7 @@ $bg: #050801;
 	font-size: clamp(0.8rem, 3vw, 1.5rem);
 	text-transform: uppercase;
 	overflow: hidden;
-	transition: 500ms;
+	transition: 400ms;
 	letter-spacing: 2px;
 	-webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 	&:nth-child(1) {
@@ -105,10 +104,4 @@ $bg: #050801;
 			}
 		}
 	}
-}
-.hue_red {
-	filter: hue-rotate(290deg);
-}
-.hue_blue {
-	filter: hue-rotate(110deg);
 }

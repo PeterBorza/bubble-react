@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+
 import { msg } from '../context';
-import { Button, Loader } from '../utils';
+
+import { Neon, Loader } from '../utils';
+
+import { flags } from '../context/fetchTimes';
+
 import styles from './NavigationBar.module.scss';
 
 const NavigationBar = () => {
@@ -12,14 +17,12 @@ const NavigationBar = () => {
 	return (
 		<nav className={styles.nav_bar}>
 			<h1>{msg.headerTitle}</h1>
-			<Button
-				disabled={false}
-				type='button'
-				handler={btnHandler}
-				loading={isLoading}
-			>
-				{isLoading ? <Loader /> : msg.loadButton}
-			</Button>
+			{flags.navFeature && (
+				<Neon
+					title={isLoading ? <Loader /> : msg.loadButton}
+					handler={btnHandler}
+				/>
+			)}
 		</nav>
 	);
 };

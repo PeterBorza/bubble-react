@@ -1,16 +1,23 @@
 @import '../variables.scss';
 
+$btnColor: #086b6b;
+$listElementColor: #a2702e;
+$bigScreenPadding: 0.3rem 0.8rem;
+$smallScreenPadding: 0.2rem 0.5rem;
+
 .primary_btn {
-	padding: 0.3rem 0.8rem;
+	padding: $bigScreenPadding;
 	outline: none;
 	border: none;
 	border-radius: 3px;
-	background-color: #c58d43;
+	color: lighten($listElementColor, 25%);
+	background-color: $btnColor;
 	cursor: pointer;
-	transition: transform 100ms ease;
+	transition: 100ms ease;
+	transition-property: transform color;
 	@include flexCenter(row);
 	&:hover {
-		color: white;
+		color: lighten($listElementColor, 40%);
 	}
 	&:active {
 		transform: scale(0.98);
@@ -18,4 +25,10 @@
 }
 .bg_transparent {
 	background-color: transparent;
+}
+
+@media only screen and(max-width: 700px) {
+	.primary_btn {
+		padding: $smallScreenPadding;
+	}
 }

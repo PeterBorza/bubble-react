@@ -19,7 +19,10 @@
 	button {
 		font-family: 'Noto Sans JP', sans-serif;
 		font-weight: 700;
-		font-size: clamp(0.8rem, 1vw, 1.8rem);
+		font-size: clamp(0.6rem, 1vw, 1.8rem);
 		cursor: pointer;
+	}
+	a {
+		@include link($labelColor, lighten($labelColor, 15%));
 	}
 }

@@ -3,36 +3,38 @@
 $labelColor: #086b6b;
 $labelSpanColor: #e90e0e;
 $inputRangeThumbColor: #00fd0a;
+$titleHoverColor: #eee2e2;
+$labelAndSpanClamp: clamp(0.7rem, 1.3vw, 1.2rem);
 
 .inputWrapper {
 	width: 100%;
 	@include flexWrap;
-	padding: 1rem 1rem;
+	padding: 0.5rem;
 }
 
 label {
 	display: flex;
 	justify-content: space-between;
 	color: $labelColor;
-	font-size: clamp(0.7rem, 1.3vw, 1.2rem);
+	font-size: $labelAndSpanClamp;
 	font-weight: bold;
 	text-transform: capitalize;
 }
 
 a {
-	@include link(black, crimson);
+	@include link($labelColor, $titleHoverColor);
 }
 
 .leftRange {
 	padding-left: 0.5rem;
 	color: $labelSpanColor;
-	font-size: clamp(0.7rem, 1.3vw, 1.2rem);
+	font-size: $labelAndSpanClamp;
 }
 
 .range {
-	width: 90%;
+	width: 100%;
 	height: 1.2rem;
-	margin: 1rem auto;
+	margin: 0.5rem auto;
 	-webkit-appearance: none;
 	appearance: none;
 	outline: none;
@@ -51,4 +53,19 @@ a {
 	background-color: $inputRangeThumbColor;
 	cursor: pointer;
 	border: 4px solid #333;
+}
+
+@media only screen and(max-width: 700px) {
+	.inputWrapper {
+		.range {
+			width: 100%;
+			height: 0.8rem;
+			margin: 0.2rem auto;
+			border-radius: 0.5rem;
+		}
+		.range::-webkit-slider-thumb {
+			width: 0.7rem;
+			height: 0.7rem;
+		}
+	}
 }

@@ -47,13 +47,13 @@
 	padding: 0 0.4rem;
 	display: block;
 	text-decoration: none;
-	border: 1px solid black;
+	border: 1px solid $primary;
 	border-radius: 3px;
 	color: $primary;
 	text-overflow: ellipsis;
+	transition: background-color 100ms;
 	&:hover {
-		text-decoration: none;
-		color: $hover;
+		background-color: $hover;
 	}
 }
 
@@ -63,3 +63,20 @@ $white: 1px solid white;
 $blue: 1px solid blue;
 $green: 1px solid green;
 $niceYellow: #c58d43;
+
+// bubble-react project variables
+
+$labelColor: #086b6b;
+$labelSpanColor: #e90e0e;
+$inputRangeThumbColor: #00fd0a;
+$titleHoverColor: #eee2e2;
+$labelAndSpanClamp: clamp(0.7rem, 1.3vw, 1.2rem);
+$tableBackgroundColor: #92dddd;
+$outputBackgroundColor: #7ecbcbde;
+$bigScreenMargin: 0.5rem;
+$smallScreenMargin: 0.3rem;
+$titleColor: #086b6b;
+$listElementColor: #a2702e;
+$spanColor: #c71717;
+$titleUnderLineColor: #97e6e6;
+$titleHoverColor: #eee2e2;

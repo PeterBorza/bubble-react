@@ -1,8 +1,8 @@
 export const messageBoard = {
 	documentTitle: 'Bubble Background',
 	headerTitle: 'create your own bubble background',
-	linkToBubbles: 'check out your bubbles',
-	linkToMainSection: 'back to main',
+	linkToBubbles: 'go to bubbles',
+	linkToMainSection: 'home',
 	createButton: 'update',
 	loadButton: 'loader test',
 	deleteButton: 'delete bubble',

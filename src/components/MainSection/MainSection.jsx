@@ -4,14 +4,15 @@ import { Form, Input, Column } from '../MainSection';
 
 import { data_table_section, output } from './MainSection.module.scss';
 
-import { msg, BubbleContext } from '../context';
+import { msg, BubbleContext, fetchTimes, flags } from '../context';
 
 import { useFetch, handlePostBubble, Loader } from '../utils';
 
 const MainSection = () => {
-	const [inputData, , loading] = useFetch(msg.urlData, 0);
+	const { inputDataTime, bubbleDataTime } = fetchTimes;
+	const [inputData, , loading] = useFetch(msg.urlData, inputDataTime);
 	const [bubble, setBubble] = useContext(BubbleContext);
-	const [bubbleData, , isLoading] = useFetch(msg.url, 0);
+	const [bubbleData, , isLoading] = useFetch(msg.url, bubbleDataTime);
 
 	const columnItems = {
 		leftItems: bubbleData.map(item => (
@@ -40,23 +41,26 @@ const MainSection = () => {
 			{loading ? (
 				<Loader />
 			) : (
-				<Form
-					onSubmit={() => handlePostBubble(bubble)}
-					isLoading={isLoading}
-				>
-					{inputData.map(item => (
-						<Input
-							key={item.id}
-							name={item.name}
-							min={item.minimum}
-							max={item.maximum}
-							step={item.step}
-							span={item.span}
-							value={bubble[item.name] ?? item.value}
-							onChange={e => bubbleValueHandler(e, item.name)}
-						/>
-					))}
-				</Form>
+				!loading &&
+				flags.formFlag && (
+					<Form
+						onSubmit={() => handlePostBubble(bubble)}
+						isLoading={isLoading}
+					>
+						{inputData.map(item => (
+							<Input
+								key={item.id}
+								name={item.name}
+								min={item.minimum}
+								max={item.maximum}
+								step={item.step}
+								span={item.span}
+								value={bubble[item.name] ?? item.value}
+								onChange={e => bubbleValueHandler(e, item.name)}
+							/>
+						))}
+					</Form>
+				)
 			)}
 			<div className={output}>
 				{inputData.map((item, i) => (
