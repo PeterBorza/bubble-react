@@ -37,6 +37,34 @@
       "size": "80",
       "opacity": "0.9",
       "id": 12
+    },
+    {
+      "left": 50,
+      "top": 50,
+      "size": 200,
+      "opacity": 0.5,
+      "id": 13
+    },
+    {
+      "left": 50,
+      "top": 50,
+      "size": 200,
+      "opacity": 0.5,
+      "id": 14
+    },
+    {
+      "left": "27",
+      "top": "66",
+      "size": "315",
+      "opacity": "0.9",
+      "id": 15
+    },
+    {
+      "left": 50,
+      "top": 50,
+      "size": 200,
+      "opacity": 0.5,
+      "id": 16
     }
   ],
   "data": [

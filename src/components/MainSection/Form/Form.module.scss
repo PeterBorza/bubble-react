@@ -1,15 +1,30 @@
 @import '../../utils/variables.scss';
 
+$bigScreenMargin: 0.5rem;
+$smallScreenMargin: 0.3rem;
+
 .form {
 	width: 35%;
 	padding: 0.6rem;
-	margin: 0.5rem;
+	margin: $bigScreenMargin;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border-radius: 0.5rem;
+	border-radius: $bigScreenMargin;
+	overflow: hidden;
+	white-space: nowrap;
 	@include shadow;
+	.button_margin {
+		margin: auto $bigScreenMargin $bigScreenMargin auto;
+	}
 }
-.button_margin {
-	margin: auto 0.7rem 0.7rem auto;
+
+@media only screen and(max-width: 700px) {
+	.form {
+		padding: $smallScreenMargin;
+		margin: $smallScreenMargin;
+		.button_margin {
+			margin: auto $smallScreenMargin $smallScreenMargin auto;
+		}
+	}
 }
