@@ -46,6 +46,9 @@ $titleHoverColor: #eee2e2;
 		span {
 			color: $spanColor;
 		}
+		&:hover {
+			cursor: default;
+		}
 	}
 }
 
