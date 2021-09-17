@@ -1,5 +1,7 @@
 import styles from './NeonButton.module.scss';
 
+import { messageBoard as msg } from '../../context/messages';
+
 const NeonButton = ({
 	title = 'NeonButton',
 	handler,
@@ -14,7 +16,9 @@ const NeonButton = ({
 			tabIndex={tabIndex}
 			title={title}
 		>
-			{title}
+			<a href={msg.buildingApp} target='_blank'>
+				{title}
+			</a>
 			<span></span>
 			<span></span>
 			<span></span>

@@ -5,5 +5,5 @@ export const fetchTimes = {
 
 export const flags = {
 	formFlag: true,
-	navFeature: false,
+	navFeature: true,
 };
