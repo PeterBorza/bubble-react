@@ -11,10 +11,10 @@ const Form = ({ onSubmit, isLoading, children }) => {
 		<form className={form} onSubmit={onSubmit}>
 			{children}
 
+			<Link to='/bubbles'>{msg.linkToBubbles}</Link>
 			<Button type='submit' btnClassName={button_margin}>
 				{isLoading ? <Loader /> : msg.createButton}
 			</Button>
-			<Link to='/bubbles'>{msg.linkToBubbles}</Link>
 		</form>
 	);
 };
