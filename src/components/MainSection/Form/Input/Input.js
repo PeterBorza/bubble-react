@@ -1,10 +1,13 @@
-import { leftRange, range } from './Input.module.scss';
+import { leftRange, range, inputWrapper } from './Input.module.scss';
 
-const Input = ({ name, min, max, step, onChange, value }) => {
+const Input = ({ name, min, max, step, onChange, span, value }) => {
 	return (
-		<>
+		<div className={inputWrapper}>
 			<label htmlFor={name}>{name}</label>
-			<span className={leftRange}>{value}</span>
+			<span className={leftRange}>
+				{value}
+				{span}
+			</span>
 			<input
 				className={range}
 				type='range'
@@ -15,7 +18,7 @@ const Input = ({ name, min, max, step, onChange, value }) => {
 				onChange={onChange}
 				step={step}
 			/>
-		</>
+		</div>
 	);
 };
 

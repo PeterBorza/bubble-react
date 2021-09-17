@@ -1,0 +1,114 @@
+@use "../../../css/mixins" as *;
+@use "../../../css/variables" as *;
+
+$neonBlue: #03e9f4;
+$bg: #050801;
+
+.neon_button {
+	position: relative;
+	border: none;
+	outline: none;
+	display: inline-block;
+	padding: 5px 8px;
+	color: $neonBlue;
+	background-color: transparent;
+	font-size: clamp(0.8rem, 3vw, 1.5rem);
+	text-transform: uppercase;
+	overflow: hidden;
+	transition: 500ms;
+	letter-spacing: 2px;
+	-webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+	&:nth-child(1) {
+		filter: hue-rotate(290deg);
+	}
+	&:nth-child(3) {
+		filter: hue-rotate(110deg);
+	}
+	&:hover {
+		background: $neonBlue;
+		color: $bg;
+		box-shadow: 0 0 5px $neonBlue, 0 0 25px $neonBlue, 0 0 50px $neonBlue,
+			0 0 200px $neonBlue;
+		cursor: pointer;
+	}
+	span {
+		position: absolute;
+		display: inline-block;
+		&:nth-child(1) {
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 2px;
+			background: linear-gradient(90deg, transparent, $neonBlue);
+			animation: animate1 1s linear infinite;
+			@keyframes animate1 {
+				0% {
+					left: -100%;
+				}
+				100% {
+					left: 100%;
+				}
+			}
+		}
+		&:nth-child(2) {
+			top: -100%;
+			right: 0;
+			width: 2px;
+			height: 100%;
+			background: linear-gradient(180deg, transparent, $neonBlue);
+			animation: animate2 1s linear infinite;
+			animation-delay: 250ms;
+			@keyframes animate2 {
+				0% {
+					top: -100%;
+				}
+				50%,
+				100% {
+					top: 100%;
+				}
+			}
+		}
+		&:nth-child(3) {
+			bottom: 0;
+			right: -100%;
+			width: 100%;
+			height: 2px;
+			background: linear-gradient(270deg, transparent, $neonBlue);
+			animation: animate3 1s linear infinite;
+			animation-delay: 500ms;
+			@keyframes animate3 {
+				0% {
+					right: -100%;
+				}
+				50%,
+				100% {
+					right: 100%;
+				}
+			}
+		}
+		&:nth-child(4) {
+			bottom: -100%;
+			left: 0;
+			width: 2px;
+			height: 100%;
+			background: linear-gradient(360deg, transparent, $neonBlue);
+			animation: animate4 1s linear infinite;
+			animation-delay: 750ms;
+			@keyframes animate4 {
+				0% {
+					bottom: -100%;
+				}
+				50%,
+				100% {
+					bottom: 100%;
+				}
+			}
+		}
+	}
+}
+.hue_red {
+	filter: hue-rotate(290deg);
+}
+.hue_blue {
+	filter: hue-rotate(110deg);
+}
