@@ -1,21 +1,16 @@
-@use "../../css-files/mixins" as *;
-@use "../../css-files/variables" as *;
-
-// @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
+@use "../utils/variables.scss" as *;
 
 .container {
 	display: grid;
-	grid-template-columns: minmax(100px, 25%) 1fr;
+	grid-template-columns: minmax(130px, 25%) 1fr;
+}
 
-	.sideBar {
-		font-family: $sansPro;
-		cursor: default;
-		background-color: yellowgreen;
-		height: 100vh;
-		display: grid;
-		place-items: center;
-	}
-	.content {
-		background-color: lemonchiffon;
-	}
+.data_table_section {
+	min-width: 90%;
+	max-height: 100vh;
+	height: 90vh;
+	margin-top: 6vh;
+	background-color: $tableBackgroundColor;
+	border-radius: 0.3rem;
+	overflow: hidden;
 }

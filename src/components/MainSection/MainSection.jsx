@@ -7,6 +7,7 @@ import { data_table_section, output } from './MainSection.module.scss';
 import { msg, BubbleContext, fetchTimes, flags } from '../../context';
 
 import { useFetch, handlePostBubble, Loader } from '../utils';
+import SideBar from '../SideBar';
 
 const MainSection = () => {
 	const { inputDataTime, bubbleDataTime } = fetchTimes;
@@ -37,32 +38,36 @@ const MainSection = () => {
 	};
 
 	return (
-		<div className={data_table_section}>
-			{loading ? (
-				<Loader />
-			) : (
-				!loading &&
-				flags.formFlag && (
-					<Form
-						onSubmit={() => handlePostBubble(bubble)}
-						isLoading={isLoading}
-					>
-						{inputData.map(item => (
-							<Input
-								key={item.id}
-								name={item.name}
-								min={item.minimum}
-								max={item.maximum}
-								step={item.step}
-								span={item.span}
-								value={bubble[item.name] ?? item.value}
-								onChange={e => bubbleValueHandler(e, item.name)}
-							/>
-						))}
-					</Form>
-				)
-			)}
-			<div className={output}>
+		<SideBar outerClass={data_table_section}>
+			<SideBar.LeftPanel>
+				{loading ? (
+					<Loader />
+				) : (
+					!loading &&
+					flags.formFlag && (
+						<Form
+							onSubmit={() => handlePostBubble(bubble)}
+							isLoading={isLoading}
+						>
+							{inputData.map(item => (
+								<Input
+									key={item.id}
+									name={item.name}
+									min={item.minimum}
+									max={item.maximum}
+									step={item.step}
+									span={item.span}
+									value={bubble[item.name] ?? item.value}
+									onChange={e =>
+										bubbleValueHandler(e, item.name)
+									}
+								/>
+							))}
+						</Form>
+					)
+				)}
+			</SideBar.LeftPanel>
+			<SideBar.MainPanel>
 				{inputData.map((item, i) => (
 					<Column
 						key={`${item.id}-data`}
@@ -70,8 +75,8 @@ const MainSection = () => {
 						columnList={Object.values(columnItems)[i]}
 					/>
 				))}
-			</div>
-		</div>
+			</SideBar.MainPanel>
+		</SideBar>
 	);
 };
 
