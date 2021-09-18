@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './BubbleSection.module.scss';
 import { Link } from 'react-router-dom';
-import { msg } from '../context';
+import { msg } from '../../context';
 import { useFetch, Loader, Button, Bubble, handleDeleteBubble } from '../utils';
 
 const BubbleSection = () => {

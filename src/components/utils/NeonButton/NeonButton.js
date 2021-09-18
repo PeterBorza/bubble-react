@@ -1,6 +1,6 @@
 import styles from './NeonButton.module.scss';
 
-import { messageBoard as msg } from '../../context/messages';
+import { messageBoard as msg } from '../../../context/messages';
 
 const NeonButton = ({
 	title = 'NeonButton',

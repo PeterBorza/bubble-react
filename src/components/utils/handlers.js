@@ -1,4 +1,4 @@
-import { msg } from '../context';
+import { msg } from '../../context';
 
 export const handleDeleteBubble = async id => {
 	await fetch(msg.url + '/' + id, {

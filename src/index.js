@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { BubbleContextProvider } from './components/context/bubbleContext';
+import { BubbleContextProvider } from './context';
 
 ReactDOM.render(
 	<React.StrictMode>

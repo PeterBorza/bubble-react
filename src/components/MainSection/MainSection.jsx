@@ -4,7 +4,7 @@ import { Form, Input, Column } from '../MainSection';
 
 import { data_table_section, output } from './MainSection.module.scss';
 
-import { msg, BubbleContext, fetchTimes, flags } from '../context';
+import { msg, BubbleContext, fetchTimes, flags } from '../../context';
 
 import { useFetch, handlePostBubble, Loader } from '../utils';
 

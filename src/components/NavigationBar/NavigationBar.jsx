@@ -1,10 +1,10 @@
 // import React, { useState } from 'react';
 
-import { msg } from '../context';
+import { msg } from '../../context';
 
 import { Neon } from '../utils';
 
-import { flags } from '../context/fetchTimes';
+import { flags } from '../../context/fetchTimes';
 
 import styles from './NavigationBar.module.scss';
 
