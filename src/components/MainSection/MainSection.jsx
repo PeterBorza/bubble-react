@@ -67,7 +67,7 @@ const MainSection = () => {
 					)
 				)}
 			</SideBar.LeftPanel>
-			<SideBar.MainPanel>
+			<SideBar.MainPanel outerClass={output}>
 				{inputData.map((item, i) => (
 					<Column
 						key={`${item.id}-data`}
