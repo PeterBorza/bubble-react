@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { msg } from '../../context';
+import { msg } from '../../../context';
 
 import { form, button_margin } from './Form.module.scss';
 
