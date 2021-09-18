@@ -1,12 +1,10 @@
-import { container, sideBar, content } from './SideBar.module.scss';
+import { container } from './SideBar.module.scss';
 
-const Component = () => {
-	return (
-		<div className={container}>
-			<div className={sideBar}></div>
-			<div className={content}></div>
-		</div>
-	);
+import classNames from 'classnames';
+
+const SideBar = ({ children, outerClass }) => {
+	const classes = classNames(container, outerClass);
+	return <div className={classes}>{children}</div>;
 };
 
-export default Component;
+export default SideBar;

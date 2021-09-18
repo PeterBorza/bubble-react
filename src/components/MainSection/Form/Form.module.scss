@@ -4,15 +4,13 @@ $bigScreenMargin: 0.5rem;
 $smallScreenMargin: 0.3rem;
 
 .form {
-	width: 35%;
 	padding: 0.6rem;
 	margin: $bigScreenMargin;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	border-radius: $bigScreenMargin;
-	overflow: hidden;
-	white-space: nowrap;
 	@include shadow;
 	.button_margin {
 		margin: auto $bigScreenMargin $bigScreenMargin auto;
