@@ -16,7 +16,7 @@ const NeonButton = ({
 			tabIndex={tabIndex}
 			title={title}
 		>
-			<a href={msg.buildingApp} target='_blank'>
+			<a href={msg.buildingApp} target='_blank' rel='noreferrer'>
 				{title}
 			</a>
 			<span></span>
