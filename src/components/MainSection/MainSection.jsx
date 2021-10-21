@@ -1,70 +1,58 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from "react";
 
-import { Form, Input, Column } from '../MainSection';
+import { Form, Input, Column } from "../MainSection";
 
-import { data_table_section, output } from './MainSection.module.scss';
+import { data_table_section, output } from "./MainSection.module.scss";
 
-import { msg, BubbleContext, fetchTimes, flags } from '../../context';
+import { msg, BubbleContext, fetchTimes, flags } from "../../context";
 
-import { useFetch, handlePostBubble, Loader } from '../utils';
-import SideBar from '../SideBar';
+import { useFetch, handlePostBubble, Loader } from "../utils";
+import SideBar from "../SideBar";
 
 const MainSection = () => {
 	const { inputDataTime, bubbleDataTime } = fetchTimes;
-	const [inputData, , loading] = useFetch(msg.urlData, inputDataTime);
+	const { loading, bubbleData: inputData } = useFetch(
+		msg.urlData,
+		inputDataTime
+	);
 	const [bubble, setBubble] = useContext(BubbleContext);
-	const [bubbleData, , isLoading] = useFetch(msg.url, bubbleDataTime);
+	const { isLoading, bubbleData } = useFetch(msg.url, bubbleDataTime);
 
-	const columnItems = {
-		leftItems: bubbleData.map(item => (
-			<li key={`left-${item.id}`}>{item.left}</li>
-		)),
-		topItems: bubbleData.map(item => (
-			<li key={`top-${item.id}`}>{item.top}</li>
-		)),
-		sizeItems: bubbleData.map(item => (
-			<li key={`size-${item.id}`}>{item.size}</li>
-		)),
-		opacityItems: bubbleData.map(item => (
-			<li key={`opacity-${item.id}`}>{item.opacity}</li>
-		)),
-	};
+	const mappedItems = key =>
+		bubbleData.map(item => (
+			<li key={`${key}-${item.id}`}>{item[`${key}`]}</li>
+		));
 
-	const bubbleValueHandler = (e, item) => {
+	const columnItems = Object.keys(bubble).map(item => mappedItems(item));
+
+	const bubbleValueHandler = e => {
 		setBubble(bubble => ({
 			...bubble,
-			[item]: e.target.value,
+			[e.target.name]: e.target.value,
 		}));
 	};
+
+	const submitHandler = useCallback(() => handlePostBubble(bubble), [bubble]);
 
 	return (
 		<SideBar outerClass={data_table_section}>
 			<SideBar.LeftPanel>
-				{loading ? (
-					<Loader />
-				) : (
-					!loading &&
-					flags.formFlag && (
-						<Form
-							onSubmit={() => handlePostBubble(bubble)}
-							isLoading={isLoading}
-						>
-							{inputData.map(item => (
-								<Input
-									key={item.id}
-									name={item.name}
-									min={item.minimum}
-									max={item.maximum}
-									step={item.step}
-									span={item.span}
-									value={bubble[item.name] ?? item.value}
-									onChange={e =>
-										bubbleValueHandler(e, item.name)
-									}
-								/>
-							))}
-						</Form>
-					)
+				{isLoading && <Loader />}
+				{flags.formFlag && (
+					<Form onSubmit={submitHandler} isLoading={isLoading}>
+						{inputData.map(item => (
+							<Input
+								key={item.id}
+								name={item.name}
+								min={item.minimum}
+								max={item.maximum}
+								step={item.step}
+								span={item.span}
+								value={bubble[item.name] ?? item.value}
+								onChange={bubbleValueHandler}
+							/>
+						))}
+					</Form>
 				)}
 			</SideBar.LeftPanel>
 			<SideBar.MainPanel outerClass={output}>
@@ -72,7 +60,7 @@ const MainSection = () => {
 					<Column
 						key={`${item.id}-data`}
 						name={item.name}
-						columnList={Object.values(columnItems)[i]}
+						columnList={columnItems[i]}
 					/>
 				))}
 			</SideBar.MainPanel>

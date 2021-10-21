@@ -1,11 +1,11 @@
-import React from 'react';
-import styles from './BubbleSection.module.scss';
-import { Link } from 'react-router-dom';
-import { msg } from '../../context';
-import { useFetch, Loader, Button, Bubble, handleDeleteBubble } from '../utils';
+import React from "react";
+import styles from "./BubbleSection.module.scss";
+import { Link } from "react-router-dom";
+import { msg } from "../../context";
+import { useFetch, Loader, Button, Bubble, handleDeleteBubble } from "../utils";
 
 const BubbleSection = () => {
-	const [bubbleData, setBubbleData, isLoading] = useFetch(msg.url, 100);
+	const { bubbleData, setBubbleData, isLoading } = useFetch(msg.url, 100);
 	const selected = item => bubbleData.find(bubble => bubble.id === item).id;
 
 	const handleDeleteButton = () => {
@@ -29,7 +29,7 @@ const BubbleSection = () => {
 					{msg.linkToMainSection}
 				</Link>
 				<Button
-					type={'button'}
+					type={"button"}
 					disabled={false}
 					handler={() => handleDeleteButton()}
 				>
