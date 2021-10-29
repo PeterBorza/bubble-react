@@ -4,19 +4,15 @@ import { Form, Input, Column } from "../MainSection";
 
 import { data_table_section, output } from "./MainSection.module.scss";
 
-import { msg, BubbleContext, fetchTimes, flags } from "../../context";
+import { msg, BubbleContext, flags } from "../../context";
 
 import { useFetch, handlePostBubble, Loader } from "../utils";
 import SideBar from "../SideBar";
 
 const MainSection = () => {
-	const { inputDataTime, bubbleDataTime } = fetchTimes;
-	const { loading, bubbleData: inputData } = useFetch(
-		msg.urlData,
-		inputDataTime
-	);
+	const { bubbleData: inputData } = useFetch(msg.urlData);
 	const [bubble, setBubble] = useContext(BubbleContext);
-	const { isLoading, bubbleData } = useFetch(msg.url, bubbleDataTime);
+	const { isLoading, bubbleData } = useFetch(msg.url);
 
 	const mappedItems = key =>
 		bubbleData.map(item => (
@@ -38,7 +34,7 @@ const MainSection = () => {
 		<SideBar outerClass={data_table_section}>
 			<SideBar.LeftPanel>
 				{isLoading && <Loader />}
-				{flags.formFlag && (
+				{flags.FORM_FLAG && (
 					<Form onSubmit={submitHandler} isLoading={isLoading}>
 						{inputData.map(item => (
 							<Input

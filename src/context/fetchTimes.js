@@ -1,9 +1,4 @@
-export const fetchTimes = {
-	bubbleDataTime: 200,
-	inputDataTime: 200,
-};
-
 export const flags = {
-	formFlag: true,
-	navFeature: true,
+	FORM_FLAG: true,
+	NAV_FEATURE: true,
 };
