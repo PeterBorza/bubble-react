@@ -5,7 +5,7 @@ import { msg } from "../../context";
 import { useFetch, Loader, Button, Bubble, handleDeleteBubble } from "../utils";
 
 const BubbleSection = () => {
-	const { bubbleData, setBubbleData, isLoading } = useFetch(msg.url, 100);
+	const { bubbleData, setBubbleData, isLoading } = useFetch(msg.url);
 	const selected = item => bubbleData.find(bubble => bubble.id === item).id;
 
 	const handleDeleteButton = () => {

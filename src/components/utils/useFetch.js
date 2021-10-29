@@ -1,29 +1,29 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const useFetch = (url, fetchTime) => {
+const useFetch = url => {
 	const [bubbleData, setBubbleData] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
-
-	const getBubbles = async () => {
-		try {
-			const response = await fetch(url);
-			if (response.status !== 200) {
-				throw new Error('try "yarn run serve"');
-			}
-			const data = await response.json();
-			setBubbleData(data);
-			return data;
-		} catch (error) {
-			console.log(error.message, "no fetch");
-		} finally {
-			setIsLoading(false);
-		}
-	};
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
-		setTimeout(() => getBubbles(), fetchTime);
-		// getBubbles();
-	}, [url, fetchTime]);
+		const getBubbles = async () => {
+			try {
+				setIsLoading(true);
+				const response = await fetch(url);
+				if (response.status !== 200) {
+					throw new Error('try "yarn run serve"');
+				}
+				const data = await response.json();
+				setBubbleData(data);
+				return data;
+			} catch {
+				console.log("no fetch");
+			} finally {
+				setIsLoading(false);
+			}
+		};
+		getBubbles();
+	}, [url]);
+
 	return { bubbleData, setBubbleData, isLoading };
 };
 
