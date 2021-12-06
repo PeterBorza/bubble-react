@@ -1,13 +1,10 @@
 import React, { useCallback, useContext } from "react";
-
 import { Form, Input, Column } from "../MainSection";
+import SideBar from "../SideBar";
+import { msg, BubbleContext, flags } from "../../context";
+import { useFetch, handlePostBubble, Loader } from "../utils";
 
 import { data_table_section, output } from "./MainSection.module.scss";
-
-import { msg, BubbleContext, flags } from "../../context";
-
-import { useFetch, handlePostBubble, Loader } from "../utils";
-import SideBar from "../SideBar";
 
 const MainSection = () => {
 	const { bubbleData: inputData } = useFetch(msg.urlData);
